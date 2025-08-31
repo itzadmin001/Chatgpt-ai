@@ -9,10 +9,13 @@ const MessageSlice = createSlice({
     initialState,
     reducers: {
         Allmessage(state, { payload }) {
+
             state.message = payload
         },
         addOne: (state, { payload }) => {
-            state.message.push(payload)
+            if (!state.message) state.message = [];
+            state.message.push(payload);
+
         }
     },
 })
