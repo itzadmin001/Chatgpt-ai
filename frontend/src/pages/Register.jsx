@@ -21,12 +21,14 @@ export default function Register() {
             withCredentials: true
         })
             .then((success) => {
+                console.log(success)
                 notify(success.data.message, "success")
                 dispatch(loginSuccess(success.data.user))
                 setTimeout(() => {
                     navigate('/app');
                 }, 2000);
             }).catch((err) => {
+                console.log(err)
                 notify(err?.response?.data?.message || "Please Try Again Later", "error")
             })
 
