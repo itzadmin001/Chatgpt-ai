@@ -10,7 +10,13 @@ const { text } = require("express");
 
 function initSocketServer(httpServer) {
 
-    const io = new Server(httpServer, { /* options */ });
+    const io = new Server(httpServer, {
+        cors: {
+            origin: "http://localhost:5173", // frontend ka URL
+            credentials: true
+        }
+
+    });
 
 
 
@@ -49,10 +55,19 @@ function initSocketServer(httpServer) {
     io.on("connection", (socket) => {
         // ...
 
+        socket.on("verify-user", async () => {
 
+            const Userfind = await UserModel.findOne({ _id: socket.user.id })
+
+            if (Userfind) {
+                socket.emit("verify-response", {
+                    email: Userfind.email,
+                    id: Userfind._id,
+                    fullname: Userfind.fullname,
+                })
+            }
+        })
         socket.on("ai-message", async (Message) => {
-
-
             const [MesageCreate, vectors] = await Promise.all([
                 MessageModel.create({
                     chat: Message.chat,
@@ -114,7 +129,8 @@ function initSocketServer(httpServer) {
             const response = await AiResponseGenrate([...Ltm, ...Stm,])
             socket.emit("ai-response", {
                 content: response,
-                chat: Message.chat
+                chat: Message.chat,
+                role: "model",
             })
             const [responseMessage, ResponseVectors] = await Promise.all([
                 MessageModel.create({
@@ -139,6 +155,8 @@ function initSocketServer(httpServer) {
         })
     });
 }
+
+
 
 
 

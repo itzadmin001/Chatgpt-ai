@@ -3,7 +3,6 @@ const { hashPassword, GenrateToken } = require("../Utils/Helper");
 const bcrypt = require("bcrypt")
 
 async function CreateUser(req, res) {
-
     const { fullname: { firstname, lastname }, email, password } = req.body;
 
     try {
@@ -41,8 +40,8 @@ async function CreateUser(req, res) {
         return res.status(201).json({
             message: "User created successfully",
             user: {
-                fullname: finduser.fullname,
-                email: finduser.email
+                fullname: newUser.fullname,
+                email: newUser.email
             }
         });
 
