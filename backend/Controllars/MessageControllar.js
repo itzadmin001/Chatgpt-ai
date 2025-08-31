@@ -3,6 +3,7 @@ const ChatModel = require("../Models/ChatModel")
 const MessageModel = require("../Models/MessageModel")
 
 async function GetallMassage(req, res) {
+    console.log(req, "chats ki h")
     const ChatId = req.params.id
 
     try {
