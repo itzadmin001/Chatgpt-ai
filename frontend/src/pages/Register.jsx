@@ -27,7 +27,7 @@ export default function Register() {
                     navigate('/app');
                 }, 2000);
             }).catch((err) => {
-                notify(err.response?.data?.message || "Please Try Again Later", "error")
+                notify(err?.response?.data?.message || "Please Try Again Later", "error")
             })
 
 

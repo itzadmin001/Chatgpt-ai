@@ -24,7 +24,7 @@ export default function Login() {
                 dispatch(loginSuccess(success.data.user))
                 navigate('/app')
             }).catch((err) => {
-                notify(err.response?.data?.message || "Please Try Again Later", "error")
+                notify(err?.response?.data?.message || "Please Try Again Later", "error")
             })
 
 
