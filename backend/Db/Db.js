@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-
+const BackendUrl = process.env.DATABASE_BASE_URL
 
 
 
 function connectDB() {
-    mongoose.connect('mongodb://localhost:27017', { dbName: 'ChatGPT' })
+    mongoose.connect(BackendUrl, { dbName: 'ChatGPT' })
         .then(() => {
             console.log('Connected to MongoDB');
         })
