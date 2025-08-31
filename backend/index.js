@@ -32,7 +32,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 
-
 app.use("/user", UserRouter)
 app.use("/chat", ChatRouter)
 app.use("/message", MessageRouter)
