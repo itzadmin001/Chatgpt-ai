@@ -12,9 +12,7 @@ const MessageSlice = createSlice({
             state.message = payload
         },
         addOne: (state, { payload }) => {
-            console.log(payload)
             state.message.push(payload)
-
         }
     },
 })

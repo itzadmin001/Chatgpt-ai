@@ -4,7 +4,7 @@ import ChatListItem from './ChatListItem'
 import { logout } from '../store/authSlice'
 import { VscClose } from "react-icons/vsc";
 import axios from "axios"
-import { setActiveChat } from '../store/chatSlice';
+import { addChatTitle, setActiveChat } from '../store/chatSlice';
 import { Allmessage } from '../store/MessageSlice';
 
 
@@ -16,7 +16,6 @@ export default function Sidebar({ openSidebar, SetopenSidebar }) {
     const active = useSelector((s) => s.chat.activeChatId)
     const user = useSelector((s) => s.user.user)
 
-    console.log(user)
 
 
     const GetAllMessageHandler = (id) => {
@@ -31,7 +30,6 @@ export default function Sidebar({ openSidebar, SetopenSidebar }) {
             })
 
     }
-
 
 
     const CreateChatHandler = () => {
