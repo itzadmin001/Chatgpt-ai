@@ -19,6 +19,7 @@ export default function Sidebar({ openSidebar, SetopenSidebar }) {
 
 
     const GetAllMessageHandler = (id) => {
+        console.log(id)
         axios.get("https://chatgpt-ai-v21u.onrender.com/message/" + id, {
             withCredentials: true
         })
