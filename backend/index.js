@@ -30,9 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 
-app.get("*name", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+
 
 
 app.use("/user", UserRouter)
@@ -41,6 +39,10 @@ app.use("/message", MessageRouter)
 
 
 
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 
 
