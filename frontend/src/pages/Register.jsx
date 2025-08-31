@@ -14,7 +14,7 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/user/create", { fullname: { firstname, lastname }, email, password }, {
+        axios.post("https://chatgpt-ai-v21u.onrender.com/user/create", { fullname: { firstname, lastname }, email, password }, {
             withCredentials: true
         })
             .then((success) => {

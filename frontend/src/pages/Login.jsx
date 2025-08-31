@@ -16,7 +16,7 @@ export default function Login() {
 
     const submit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/user/login", { email, password }, {
+        axios.post("https://chatgpt-ai-v21u.onrender.com/user/login", { email, password }, {
             withCredentials: true
         })
             .then((success) => {

@@ -10,13 +10,17 @@ const { text } = require("express");
 
 function initSocketServer(httpServer) {
 
-    const io = new Server(httpServer, {
-        cors: {
-            origin: "http://localhost:5173", // frontend ka URL
-            credentials: true
-        }
-
-    });
+    let io;
+    if (process.env.NODE_ENV === "development") {
+        io = new Server(httpServer, {
+            cors: {
+                origin: "http://localhost:5173",
+                credentials: true
+            }
+        });
+    } else {
+        io = new Server(httpServer);
+    }
 
 
 

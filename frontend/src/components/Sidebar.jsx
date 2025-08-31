@@ -20,7 +20,7 @@ export default function Sidebar({ openSidebar, SetopenSidebar }) {
 
 
     const GetAllMessageHandler = (id) => {
-        axios.get("http://localhost:3000/message/" + id, {
+        axios.get("https://chatgpt-ai-v21u.onrender.com/message/" + id, {
             withCredentials: true
         })
             .then((success) => {
@@ -40,7 +40,7 @@ export default function Sidebar({ openSidebar, SetopenSidebar }) {
             return alert("please give a title")
         }
 
-        axios.post("http://localhost:3000/chat", { email: user.email, title: chatname }, {
+        axios.post("https://chatgpt-ai-v21u.onrender.com/chat", { email: user.email, title: chatname }, {
             withCredentials: true
         })
             .then((success) => {

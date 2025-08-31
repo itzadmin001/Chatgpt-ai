@@ -17,7 +17,7 @@ export default function Home() {
 
     useEffect(() => {
         if (user) {
-            axios.post("http://localhost:3000/chat/all", { email: user.email })
+            axios.post("https://chatgpt-ai-v21u.onrender.com/chat/all", { email: user.email })
                 .then((success) => {
                     dispatch(AllChatsTitle(success.data.chats))
                 }).catch((err) => {
