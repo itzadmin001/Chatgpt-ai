@@ -45,7 +45,7 @@ export default function Register() {
                 <input className="w-full p-2 rounded-md bg-slate-700 text-white mb-3" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <label className="block text-sm text-slate-300">Password</label>
                 <input type="password" className="w-full p-2 rounded-md bg-slate-700 text-white mb-4" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button className="w-full py-2 bg-indigo-500 rounded-md text-white cursor-pointer">Register</button>
+                <button className="w-full py-2 bg-indigo-500 rounded-md text-white cursor-pointer" type='submit'>Register</button>
                 <p className="text-slate-300 text-sm mt-3">Already registered? <Link to="/login" className="text-indigo-300">Sign in</Link></p>
             </form>
         </div>
