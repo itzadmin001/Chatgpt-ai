@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { registerSuccess } from '../store/authSlice'
+import { loginSuccess, registerSuccess } from '../store/authSlice'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useContext } from 'react'
