@@ -3,11 +3,14 @@ import { useDispatch } from 'react-redux'
 import { registerSuccess } from '../store/authSlice'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
+import { useContext } from 'react'
+import { MainContext } from "../ContextMain"
 
 export default function Register() {
     const [firstname, setFirstName] = useState('')
     const [lastname, setlastName] = useState('')
     const [email, setEmail] = useState('')
+    const { notify } = useContext(MainContext)
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -24,8 +27,7 @@ export default function Register() {
                     navigate('/app');
                 }, 2000);
             }).catch((err) => {
-                console.log(err)
-                notify(err.response.data.message, "error")
+                notify(err.response?.data?.message || "Please Try Again Later", "error")
             })
 
 
