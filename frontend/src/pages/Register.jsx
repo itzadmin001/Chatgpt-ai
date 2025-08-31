@@ -4,13 +4,13 @@ import { registerSuccess } from '../store/authSlice'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useContext } from 'react'
-import { MainContext } from "../ContextMain"
+import { MainContext } from '../ContextMain'
 
 export default function Register() {
+    const { notify } = useContext(MainContext)
     const [firstname, setFirstName] = useState('')
     const [lastname, setlastName] = useState('')
     const [email, setEmail] = useState('')
-    const { notify } = useContext(MainContext)
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
     const navigate = useNavigate()
