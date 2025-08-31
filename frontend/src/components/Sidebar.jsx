@@ -50,6 +50,8 @@ export default function Sidebar({ openSidebar, SetopenSidebar }) {
             })
     }
 
+    console.log(chats)
+
     return (
         <aside className={`
     fixed md:static top-0 left-0 h-[100vh]
